@@ -1,3 +1,3 @@
-# WHO-CARES
+# KP
 
 The Kyber Project ...
