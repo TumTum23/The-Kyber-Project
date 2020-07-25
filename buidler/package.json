@@ -1,0 +1,28 @@
+{
+  "name": "The-Kyber-Project",
+  "version": "1.0.0",
+  "description": "The Kyber Project ...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuhCompuder/The-Kyber-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DuhCompuder/The-Kyber-Project/issues"
+  },
+  "homepage": "https://github.com/DuhCompuder/The-Kyber-Project#readme",
+  "devDependencies": {
+    "@nomiclabs/buidler": "^1.4.0",
+    "@nomiclabs/buidler-ethers": "^2.0.0",
+    "@nomiclabs/buidler-waffle": "^2.0.0",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^3.0.2",
+    "ethers": "^5.0.7"
+  }
+}
