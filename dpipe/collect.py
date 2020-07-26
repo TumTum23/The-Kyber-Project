@@ -98,6 +98,7 @@ if __name__ == "__main__":
         "https://en.wikipedia.org/wiki/Political_positions_of_the_2020_Democratic_Party_presidential_primary_candidates",
     ]
     output = output_candidates(urls, cachedir)
-    outpath = urljoin(cachedir, "candidate_topics_20200726.json")
+    op = "candidate_topics_{}{}.json".format(datetime.now().year, datetime.now().month)
+    outpath = urljoin(cachedir, op)
     with open(outpath, "w") as outfile:
         json.dump(output, outfile)
