@@ -27,14 +27,21 @@ def process_article(article):
     doc = {}
     doc['url'] = article.url
 
-    article.download()
-    article.parse()
-    article.nlp()
+    try:
+        article.download()
 
-    doc['authors'] = article.authors
-    doc['publish_date'] = str(article.publish_date)
-    doc['text'] = article.text
-    doc['keywords'] = article.keywords
+        article.parse()
+        article.nlp()
+
+        doc['authors'] = article.authors
+        doc['publish_date'] = str(article.publish_date)
+        doc['text'] = article.text
+        doc['keywords'] = article.keywords
+        doc['error'] = 0
+
+    except Exeption as exc:
+        doc['error'] = str(exc)
+        logger.error("Unable to download. {}".format(article.url))
 
     return doc
 
