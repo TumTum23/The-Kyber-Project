@@ -1,72 +1,78 @@
+from datetime import datetime
 import json
-import re
+import logging
 
-from lxml import html
-import requests
+import newspaper
 
-def parse_topic_titles(tree:html.HtmlElement) -> list:
-    return tree.xpath('//span[@class="toctext"]/text()') 
+logger = logging.getLogger(__name__)
 
-def parse_major_topics(tree:html.HtmlElement) -> list:
-    return tree.xpath('//h2/span[@class="mw-headline"]/text()')
+def enable_log(log_name):
+    """ Enable logs written to file """
+    logging.basicConfig(filename= log_name, level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
 
-def parse_minor_topics(tree:html.HtmlElement) -> list:
-    return tree.xpath('//h3/span[@class="mw-headline"]/text()') 
+def process_article(article):
+    doc = {}
+    doc['url'] = article.url
 
-def orient_topics(tree:html.HtmlElement) -> dict:
-    titles = parse_topic_titles(tree)
-    majt = parse_major_topics(tree)
-    mint = parse_minor_topics(tree)
+    try:
+        article.download()
 
-    if len(titles) == 0 or len(majt) == 0 or len(mint) == 0:
-        return {}
+        article.parse()
+        article.nlp()
 
-    tt = {}
-    current = majt[0]
-    majt = set(majt)
-    mint = set(mint)
-    for cand in titles:
-        print(cand)
-        if cand in majt:
+        doc['authors'] = article.authors
+        doc['publish_date'] = str(article.publish_date)
+        doc['text'] = article.text
+        doc['keywords'] = article.keywords
+        doc['error'] = 0
 
-            tt[cand] = []
+    except Exeption as exc:
+        doc['error'] = str(exc)
+        logger.error("Unable to download. {}".format(article.url))
 
-            if cand != current:
-                current = cand
+    return doc
 
-        if cand in mint:
+def identify_articles(newspaper_urls:list, keywords:set):
+    """ Identify any articles containing keywords in urls. """
+    for newsurl in newspaper_urls:
+        
+        try:
+            paper = newspaper.build(newsurl)
+        except Exception as exc:
+            logger.error("Unable to build. {}".format(newsurl))
+            logger.exception(exc)
 
-            tt[current].append(cand)
+        for article in paper.articles:
 
-    return tt
+            logger.info("article url. {}".format(article.url))
+            for keyword in keywords:
 
-def output_candidates(urls:list) -> dict:
-    
-    output = {}
-    for url in urls:
+                if keyword in article.url:
+                    logger.info("{} in {}".format(keyword, article.url))
+                    yield process_article(article)
 
-        r = requests.get(url)
-        if r.status_code == requests.codes.ok:
-            tree = html.fromstring(r.content)
-            topics = orient_topics(tree)
+def store_articles(fpath:str, newspaper_urls:list, keywords:set):
 
-            output[url] = topics
+    dailies = []
+    for proc in identify_articles(newspaper_urls, keywords):
 
-        else:
-            print("bad status code. {}. {}".format(r.status_code, url))
+        dailies.append(proc)
+        logger.info("Processed. {}".format(proc['url']))
 
-    return output
-
+    with open(fpath, "w") as f:
+        json.dump(dailies, f)
+        logger.info("Wrote out. {}".format(fpath))
 
 if __name__ == "__main__":
 
-    urls = [
-        "https://en.wikipedia.org/wiki/Political_positions_of_Joe_Biden",
-        "https://en.wikipedia.org/wiki/Political_positions_of_Kamala_Harris",
-        "https://en.wikipedia.org/wiki/Political_positions_of_Donald_Trump",
-        "https://en.wikipedia.org/wiki/Political_positions_of_the_2020_Democratic_Party_presidential_primary_candidates",
+    dt = datetime.now()
+    fpath = "/Users/tylerbrown/Downloads/articles/daily_articles_{}-{}-{}.json".format(dt.year, dt.month, dt.day)
+    newspaper_urls = [
+        "http://www.cnn.com",
+        "http://www.foxnews.com",
+        "http://www.nytimes.com"
     ]
-    output = output_candidates(urls)
-
-    with open("candidate_topics_20200719.json", "w") as outfile:
-        json.dump(output, outfile)
+    keywords = set(['trump','biden'])
+    
+    enable_log("daily_articles.log")
+    store_articles(fpath, newspaper_urls, keywords)
