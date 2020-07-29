@@ -1,30 +1,141 @@
-* { 
+/** { 
     border: 1px solid red;
+}*/
+body {
+	background-color: whitesmoke;
+	font-family: 'Recursive', sans-serif;
 }
 
 .container {
-    height: 100vh;
-    width: 100vw;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    height: 30vh;
 }
 
-
-.container{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.title {
+background-color:;
+margin-top: 35px;
+margin-bottom: 15px;
+margin-left: 210px;
+color: #2196F3;
 }
 
-.about {
-    
+.navv {
+display: flex;
+background-color: whitesmoke;   
+flex-direction: row;
+justify-content: space-evenly;
 }
 
-.aboutUs {
-    padding: 20px;
+.navbut {
+  width: 150px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+}
+
+.content {
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.mainContent {
+	width: 40%;
+	height: 160vh;
+	margin-right: 115px;
+}
+
+.mainContentArticle {
+	margin-top: 40px;
+	margin-bottom: 35px;
+	height: 30%;
+	border: 1px solid #2196F3;
+	background-color: white;
+}
+
+.feedContent {
+	width: 25%;
+	margin-left: 45px;
+}
+
+.feedContentArticle {
+	margin-top: 40px;
+	margin-bottom: 35px;
+	height: 45%;
+	border: 1px solid #2196F3;
+	background-color: white;
+}
+.feedContentArticle1 {
+	margin-top: 40px;
+	margin-bottom: 35px;
+	height: 20%;
+	border: 1px solid #2196F3;
+	background-color: white;
+}
+
+.btn {
+  border: 2px solid black;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+
+}
+
+/* Green */
+.success {
+  border-color: #4CAF50;
+  color: green;
+}
+
+.success:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Blue */
+.info {
+  border-color: #2196F3;
+  color: #000;
+}
+
+.info:hover {
+  background: #2196F3;
+  color: white;
+}
+
+/* Orange */
+.warning {
+  border-color: #ff9800;
+  color: orange;
+}
+
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
+
+/* Red */
+.danger {
+  border-color: #f44336;
+  color: red
+}
+
+.danger:hover {
+  background: #f44336;
+  color: white;
+}
+
+/* Gray */
+.default {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.default:hover {
+  background: #e7e7e7;
 }
