@@ -41,7 +41,7 @@ contract KyberProject {
 
 
     function getArticlesVotedOn(address userAddress) public view returns (string memory articleName, address article, bool archived) {
-        require(check_registration[userAddress] != true, "IS A REGISTERED USER");
+       require(check_registration[userAddress] == true, "USER MUST REGISTER FIRST");
         require(articlesVotedOn[userAddress].length > 0, "USER SHOULD HAVE VOTED ON AT LEAST ONE ARTICLE");
 
         //Vote storage v = articlesVotedOn[userAddress];
