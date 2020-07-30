@@ -26,7 +26,7 @@ def process_article(article):
         doc['keywords'] = article.keywords
         doc['error'] = 0
 
-    except Exeption as exc:
+    except Exception as exc:
         doc['error'] = str(exc)
         logger.error("Unable to download. {}".format(article.url))
 
