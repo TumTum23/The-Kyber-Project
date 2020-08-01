@@ -1,0 +1,31 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/KyberProject.sol": {
+      "content": "\n//SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.6.0;\n\ncontract KyberProject {\n    string public name = \"The Kyber Project\";\n\n    address[] public registeredUsers;\n\t\n\tmapping (address => bool) public check_registration;\n\n    function registerUser(address newUserAddress) public {\n    \trequire(check_registration[newUserAddress] != true, \"USER ALREADY REGISTERED\");\n\n        registeredUsers.push(newUserAddress);\n        check_registration[newUserAddress] = true;\n    }\n\n    struct Vote {\n        string articleName;\n        address article;\n    }\n\n    mapping (address => Vote[]) public articlesVotedOn;\n\n    function registerAVote(address userAddress, string memory _articleName, address _articleAddress) public {\n    \trequire(check_registration[userAddress] == true, \"USER MUST REGISTER FIRST\");\n        \n        Vote memory v;\n        v.articleName = _articleName;\n        v.article = _articleAddress;\n\n        articlesVotedOn[msg.sender].push(v);\n    }\n\n    //function getRegisteredUser() public view returns(address[] memory) {\n        //return articlesVotedOn;\n    //}\n}"
+    }
+  },
+  "settings": {
+    "metadata": {
+      "useLiteralContent": true
+    },
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers"
+        ],
+        "": [
+          "id",
+          "ast"
+        ]
+      }
+    }
+  }
+}
