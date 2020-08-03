@@ -39,25 +39,27 @@ contract KyberProject {
         //return articlesVotedOn[_userAddress];
     //}
 
+    address[] articleList;
 
-    function getArticlesVotedOn(address userAddress) public view returns (string memory articleName, address article, bool archived) {
-       require(check_registration[userAddress] == true, "USER MUST REGISTER FIRST");
+    function getArticlesVotedOn(address userAddress) public returns (address[] memory) {
+        require(check_registration[userAddress] == true, "USER MUST REGISTER FIRST");
         require(articlesVotedOn[userAddress].length > 0, "USER SHOULD HAVE VOTED ON AT LEAST ONE ARTICLE");
 
-        //Vote storage v = articlesVotedOn[userAddress];
+        Vote[] memory v = articlesVotedOn[userAddress];
 
-        //Need a loop to push articles into and return a tuple
+        for(uint i=0;i<v.length;i++) {
+            articleList.push(v[i].article);
+        }
 
-        //Might need to push this into a tuple before returning an entire tuple. 
-        //Currently it is only returning a single article info instead of all articles that were voted on
-        return (articlesVotedOn[userAddress].articleName, articlesVotedOn[userAddress].article, articlesVotedOn[userAddress].archived);
+        return (articleList);
     }
-    function getOwnArticlesVotedOn() public view returns (address[] memory) {
+
+    /*function getOwnArticlesVotedOn() public view returns (address[] memory) {
         require(check_registration[msg.sender] != true, "IS A REGISTERED USER");
         require(articlesVotedOn[msg.sender].archived == true, "HAS VOTED ON AT LEAST ONE ARTICLE");
 
         //Need a loop to push articles into and return a tuple
 
         return articlesVotedOn[msg.sender];
-    }
+    }*/
 }
