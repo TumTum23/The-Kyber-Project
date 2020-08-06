@@ -12,6 +12,7 @@ html, body {
   margin: 0;
   top: 0;
   background-color: #afafaf;
+  min-height: 500px;
 }
 
 .image {
@@ -36,6 +37,7 @@ html, body {
   margin-top: 10%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 100px;
   padding: 20px 50px 50px 50px;
 }
 
@@ -49,7 +51,7 @@ html, body {
   text-align: center;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=email] {
   box-sizing: border-box;
   border: none;
   border-radius: 2px;
@@ -86,6 +88,10 @@ input[type="submit"]:active{
   background-color: #031a2c;
 }
 
+.toc {
+  display: inline;
+}
+
 .options {
   display: flex;
   justify-content: space-between;
@@ -109,11 +115,17 @@ a {
   color: black;
 }
 
-.footer {
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+
+.footer .page-wrap:after {
   position: absolute;
-  bottom: 0;
+}
+
+.footer {
   padding-left: 10px;
-  display: block;
 }
 
 .pFooter {
