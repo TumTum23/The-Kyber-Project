@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "Mollen";
+  src: url(/font/Mollen-RegularPersonalUse.otf);
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   top: 0;
+  background-color: #efeeee;
 }
 
 .container {
@@ -12,6 +19,7 @@ html, body {
   margin-top: 0;
   z-index: 0;
   overflow: auto;
+  height: auto;
 }
 
 .nav {
@@ -46,6 +54,23 @@ a {
   color: white;
 }
 
+.navlink:hover{
+  background-color: #042642;
+  border-radius: 15px;
+}
+
+.navlink:active{
+  background-color: #031a2c;
+  transform: translateY(4px);
+}
+
+a {
+  text-decoration: none;
+  line-height: 57px;
+  padding: 20px;
+  color: white;
+}
+
 .mailLink {
   color: black;
   text-decoration: underline;
@@ -63,16 +88,6 @@ p {
   padding-bottom: 50px;
 }
 
-.navlink:hover{
-  background-color: #042642;
-  border-radius: 15px;
-}
-
-.navlink:active{
-  background-color: #031a2c;
-  transform: translateY(4px);
-}
-
 .image {
   transition: .5s ease;
   z-index: 0;
@@ -80,7 +95,7 @@ p {
   left: 50%;
   transform: translateX(-50%);
   top: 0;
-  margin-top: 2%;
+  margin-top: 0;
 }
 
 .image:hover {
@@ -94,6 +109,7 @@ p {
   background-color: white;
   margin-top: 0;
   height: auto;
+  background-color: #efeeee;
 }
 
 .profileContainer {
@@ -141,6 +157,7 @@ p {
   width: 200px;
   height: 100%;
   padding-top: 20px;
+  font-family: helvetica, arial, sans-serif;
 }
 
 .profileIssues {
@@ -155,6 +172,7 @@ p {
   background-color: rgb(250, 250, 250);
   flex-grow: 1;
   overflow-x: hidden;
+  font-family: helvetica, arial, sans-serif;
 }
 
 .issuesCollapse {
@@ -164,6 +182,8 @@ p {
   color: white;
   outline: none;
   border: none;
+  font-family: "mollen";
+  font-size: 20px;
 }
 
 .issuesCollapse:hover {
@@ -186,14 +206,6 @@ p {
   transition: max-height 0.2s ease-out;
 }
 
-ul {
-  list-style: none;
-}
-
-li {
-  display: inline-block;
-}
-
 .issuesButton {
   display: flex;
   justify-content: space-around;
@@ -203,4 +215,27 @@ li {
   background-color: lightgray;
   padding: 10px 20px;
   margin-right: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: #083b66;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  bottom: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.pFooter {
+  padding-left: 20px;
 }

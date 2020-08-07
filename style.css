@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "Mollen";
+  src: url(/font/Mollen-BoldPersonalUse.otf);
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   top: 0;
+  background-color: #efeeee;
 }
 
 .container {
@@ -63,55 +70,94 @@ a {
   left: 50%;
   transform: translateX(-50%);
   top: 0;
-  margin-top: 2%;
+  margin-top: 0;
 }
 
 .image:hover {
   opacity: 0.5;
 }
 
-.content {
-  margin-top: 0;
-  background-color: white;
-}
-
 .contentContainer {
   display: flex;
   justify-content: center;
   text-align: center;
-  background-color: white;
   width: 100%;
   margin-top: 0;
-  height: 500px;
-  padding-top: 20px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  width: 100%;
+  background-color: #efeeee;
+  font-family: helvetica, arial, sans-serif;
+  font-size: 20px;
+}
+
+.contentHeader {
+  font-family: mollen;
+  font-size: 60px;
+  font-weight: 700;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ececef;
+  width: 100%;
+}
+
+.contentBottom {
+  background-color: white;
+  padding-top: 40px;
+  width: 100%;
+}
+
+.contentText {
+  padding: 0;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  padding-top: 40px;
 }
 
-.start {
-  border: 2px solid #0a0a23;
-  border-radius: 15px;
-  background: #083b66;
+.contentButton {
+  border-radius: 40px;
+  background-color: #083b66;
   text-decoration: none;
-  padding: 0 20px;
-  margin: 5px;
+  padding: 0 50px;
+  margin: auto;
   text-align: center;
-  width: 40%;
-  height: 20%;
+  outline: none;
 }
 
-.about {
-  border: 2px solid #0a0a23;
-  border-radius: 15px;
-  background: #083b66;
-  text-decoration: none;
-  padding: 0 20px;
-  margin: 5px;
-  text-align: center;
-  width: 40%;
-  height: 20%;
+.contentButton:hover {
+  background-color: #042642;
+}
+
+.buttonLink {
+  color: white;
+  font-size: 20px;
+}
+
+.learn {
+  color: #083b66;
+  font-size: 20px;
+}
+
+.footer {
+  position: absolute;
+  width: 100%;
+  background-color: #083b66;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  bottom: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pFooter {
+  padding-left: 20px;
 }

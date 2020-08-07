@@ -1,17 +1,13 @@
 @font-face {
-  font-family: "FF Mark W05", sans-serif;
-  src: url(https://lolstatic-a.akamaihd.net/accounts-fonts/FFMarkW05-Medium.662fbc7901e31d6bee9c91d5f2cf42a1.woff2) format("woff2"), url(https://lolstatic-a.akamaihd.net/accounts-fonts/FFMarkW05-Medium.ef7af500d9837d3d390db15c32e93167.woff) format("woff"), url(https://lolstatic-a.akamaihd.net/accounts-fonts/FFMarkW05-Medium.e857052c6a4c940090ac8470ecdaf9be.ttf) format("truetype");
-  font-weight: 500;
+  font-family: "Mollen";
+  src: url(/font/Mollen-BoldPersonalUse.otf);
   font-style: normal;
-}
-:lang(en) {
-  font-family: 'FF Mark W05', sans-serif;
 }
 
 html, body {
   margin: 0;
   top: 0;
-  background-color: #afafaf;
+  background-color: #efeeee;
   min-height: 500px;
 }
 
@@ -22,7 +18,7 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   top: 0;
-  margin-top: 2%;
+  margin-top: 0;
 }
 
 .image:hover {
@@ -47,7 +43,8 @@ html, body {
 }
 
 .signinHeader {
-  font-size: 45px;
+  font-family: mollen;
+  font-size: 50px;
   text-align: center;
 }
 
@@ -68,6 +65,7 @@ input[type="checkbox"] {
 }
 
 label[for="remember"] {
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
 
@@ -89,7 +87,11 @@ input[type="submit"]:active{
 }
 
 .toc {
-  display: inline;
+  display: inline-flex;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 0px;
+  font-size: 12px;
+  margin-bottom: 20px;
 }
 
 .options {
@@ -111,6 +113,7 @@ input[type="submit"]:active{
 }
 
 a {
+  font-family: Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: black;
 }
@@ -125,9 +128,16 @@ a {
 }
 
 .footer {
-  padding-left: 10px;
+  position: relative;
+  width: 100%;
+  background-color: #083b66;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  bottom: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .pFooter {
-  font-size: 15px;
+  padding-left: 20px;
 }
