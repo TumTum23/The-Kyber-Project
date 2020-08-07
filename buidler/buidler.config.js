@@ -1,9 +1,9 @@
 require('dotenv').config();
 usePlugin("@nomiclabs/buidler-waffle");
 
-const INFURA_PROJECT_ID = process.env.INF_ID;
+const INFURA_PROJECT_ID = `${process.env.INF_ID}`;
 
-const ROPSTEN_PRIVATE_KEY = process.env.ROP_KEY;
+const ROPSTEN_PRIVATE_KEY = `${process.env.ROP_KEY}`;
 module.exports = {
     solc: {
         version: "0.6.8"
