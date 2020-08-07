@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "Mollen";
+  src: url(/font/Mollen-BoldPersonalUse.otf);
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  top: 0;
+  background-color: #efeeee;
+  min-height: 500px;
+}
+
+.image {
+  transition: .5s ease;
+  z-index: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  margin-top: 0;
+}
+
+.image:hover {
+  opacity: 0.5;
+}
+
+.loginBox {
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: white;
+  width: 30%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  padding: 20px 50px 50px 50px;
+}
+
+.loginContent {
+  box-sizing: border-box;
+  margin: 10% 20%;
+}
+
+.signinHeader {
+  font-family: mollen;
+  font-size: 50px;
+  text-align: center;
+}
+
+input[type=text], input[type=password], input[type=email] {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 2px;
+  background-color: #e6e6e6;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  align-content: center;
+}
+
+input[type="checkbox"] {
+  margin-bottom: 20px;
+}
+
+label[for="remember"] {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 15px;
+}
+
+input[type="submit"] {
+  background-color: #083b66;
+  color: white;
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 2px;
+}
+
+input[type="submit"]:hover{
+  background-color: #042642;
+}
+
+input[type="submit"]:active{
+  background-color: #031a2c;
+}
+
+.toc {
+  display: inline-flex;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 0px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.register {
+  display: inline-block;
+  bottom: 0;
+  text-align: left;
+}
+
+.forgot {
+  display: inline-block;
+  bottom: 0;
+  text-align: right;
+}
+
+a {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  color: black;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+
+.footer .page-wrap:after {
+  position: absolute;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background-color: #083b66;
+  color: white;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  bottom: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.pFooter {
+  padding-left: 20px;
+}
