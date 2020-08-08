@@ -103,9 +103,14 @@
           "internalType": "address",
           "name": "userAddress",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_index",
+          "type": "uint256"
         }
       ],
-      "name": "getArticlesVotedOn",
+      "name": "getArticlesVoted",
       "outputs": [
         {
           "internalType": "string[]",
@@ -113,7 +118,26 @@
           "type": "string[]"
         }
       ],
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_userAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getArticlesVotedOnLength",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
       "type": "function"
     },
     {

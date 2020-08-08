@@ -105,9 +105,14 @@
                 "internalType": "address",
                 "name": "userAddress",
                 "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
               }
             ],
-            "name": "getArticlesVotedOn",
+            "name": "getArticlesVoted",
             "outputs": [
               {
                 "internalType": "string[]",
@@ -115,7 +120,26 @@
                 "type": "string[]"
               }
             ],
-            "stateMutability": "nonpayable",
+            "stateMutability": "view",
+            "type": "function"
+          },
+          {
+            "inputs": [
+              {
+                "internalType": "address",
+                "name": "_userAddress",
+                "type": "address"
+              }
+            ],
+            "name": "getArticlesVotedOnLength",
+            "outputs": [
+              {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+              }
+            ],
+            "stateMutability": "view",
             "type": "function"
           },
           {
@@ -3045,13 +3069,15 @@
                           "referencedDeclaration": 181,
                           "src": "2404:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_address",
-                            "typeString": "address"
+                            "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                            "typeString": "function (bool,string memory) pure"
                           }
                         },
+                        "id": 156,
                         "isConstant": false,
-                        "isLValue": true,
+                        "isLValue": false,
                         "isPure": false,
+                        "kind": "functionCall",
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
                         "src": "2388:28:0",
@@ -3070,10 +3096,21 @@
                         "src": "2462:62:0",
                         "statements": [
                           {
-                            "expression": {
+                            "argumentTypes": null,
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 164,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
                               "argumentTypes": null,
-                              "arguments": [
-                                {
+                              "expression": {
+                                "argumentTypes": null,
+                                "baseExpression": {
                                   "argumentTypes": null,
                                   "expression": {
                                     "argumentTypes": null,
@@ -3136,8 +3173,9 @@
                                     "typeIdentifier": "t_string_memory_ptr",
                                     "typeString": "string memory"
                                   }
-                                ],
-                                "expression": {
+                                },
+                                "id": 161,
+                                "indexExpression": {
                                   "argumentTypes": null,
                                   "id": 225,
                                   "name": "articleList",
@@ -3152,7 +3190,7 @@
                                 },
                                 "id": 227,
                                 "isConstant": false,
-                                "isLValue": false,
+                                "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "push",
@@ -3168,15 +3206,14 @@
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
-                              "kind": "functionCall",
                               "lValueRequested": false,
                               "names": [],
                               "nodeType": "FunctionCall",
                               "src": "2476:37:0",
                               "tryCall": false,
                               "typeDescriptions": {
-                                "typeIdentifier": "t_tuple$__$",
-                                "typeString": "tuple()"
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
                               }
                             },
                             "id": 233,
@@ -3236,14 +3273,14 @@
                           "referencedDeclaration": null,
                           "src": "2447:8:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
+                            "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                            "typeString": "function (bool,string memory) pure"
                           }
                         },
                         "src": "2443:12:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
+                          "typeIdentifier": "t_tuple$__$",
+                          "typeString": "tuple()"
                         }
                       },
                       "id": 235,
@@ -3273,8 +3310,8 @@
                               "nodeType": "ElementaryTypeName",
                               "src": "2431:4:0",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_uint256",
-                                "typeString": "uint256"
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
                               }
                             },
                             "value": null,
@@ -3328,9 +3365,15 @@
                               "typeString": "uint256"
                             }
                           },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1828:37:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
+                            "typeIdentifier": "t_struct$_Vote_$55_storage",
+                            "typeString": "struct KyberProject.Vote storage ref"
                           }
                         },
                         "id": 224,
@@ -3360,8 +3403,7 @@
                         ],
                         "id": 237,
                         "isConstant": false,
-                        "isInlineArray": false,
-                        "isLValue": false,
+                        "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "TupleExpression",
@@ -3384,7 +3426,7 @@
                 "implemented": true,
                 "kind": "function",
                 "modifiers": [],
-                "name": "getArticlesVotedOn",
+                "name": "getArticlesVoted",
                 "nodeType": "FunctionDefinition",
                 "overrides": null,
                 "parameters": {
@@ -3395,7 +3437,7 @@
                       "constant": false,
                       "id": 181,
                       "mutability": "mutable",
-                      "name": "userAddress",
+                      "name": "_userAddress",
                       "nodeType": "VariableDeclaration",
                       "overrides": null,
                       "scope": 240,
@@ -3415,6 +3457,34 @@
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
+                        }
+                      },
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 144,
+                      "mutability": "mutable",
+                      "name": "_index",
+                      "nodeType": "VariableDeclaration",
+                      "overrides": null,
+                      "scope": 176,
+                      "src": "1566:11:0",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 143,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1566:4:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       },
                       "value": null,
@@ -3472,6 +3542,45 @@
                 "src": "2083:478:0",
                 "stateMutability": "nonpayable",
                 "virtual": false,
+                "visibility": "public"
+              },
+              {
+                "constant": false,
+                "functionSelector": "9195347f",
+                "id": 179,
+                "mutability": "mutable",
+                "name": "articleList",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 180,
+                "src": "1893:27:0",
+                "stateVariable": true,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                  "typeString": "string[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 177,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1893:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "id": 178,
+                  "length": null,
+                  "nodeType": "ArrayTypeName",
+                  "src": "1893:8:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                    "typeString": "string[]"
+                  }
+                },
+                "value": null,
                 "visibility": "public"
               }
             ],
