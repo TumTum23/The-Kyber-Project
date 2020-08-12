@@ -85,6 +85,17 @@ a {
   margin-top: 0;
 }
 
+.articleContent {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  min-width: 60%;
+  max-width: 80%;
+  min-height: 400px;
+}
+
 .content {
   display: flex;
   justify-content: center;
